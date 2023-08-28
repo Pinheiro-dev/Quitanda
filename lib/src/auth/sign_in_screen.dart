@@ -15,26 +15,108 @@ class SignInScreen extends StatelessWidget {
               color: Colors.green,
             ),
           ),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-              ),
-              child: const Column(
-                children: [
-                  CustomTextField(
-                    icon: Icons.email,
-                    label: 'Email',
+
+          // --- White view ---
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                //  --- Email ---
+                const CustomTextField(
+                  icon: Icons.email,
+                  label: 'Email',
+                ),
+
+                //  --- Password ---
+                const CustomTextField(
+                  icon: Icons.lock,
+                  label: 'Password',
+                  isSecret: true,
+                ),
+
+                //  --- Button enter ---
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      backgroundColor: Colors.green,
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Entrar',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
-                  CustomTextField(
-                    icon: Icons.lock,
-                    label: 'Password',
-                    isSecret: true,
+                ),
+
+                //  --- Forgot password ---
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: null,
+                    child: Text(
+                      'Esqueceu a senha?',
+                      style: TextStyle(
+                        color: Colors.red,
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+
+                //  --- Divider ---
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(children: [
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(90),
+                        thickness: 2,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Text('Ou'),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.withAlpha(90),
+                        thickness: 2,
+                      ),
+                    ),
+                  ]),
+                ),
+
+                //  --- Button new user ---
+                SizedBox(
+                  height: 50,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      side: const BorderSide(
+                        width: 2,
+                        color: Colors.green,
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Criar conta',
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
