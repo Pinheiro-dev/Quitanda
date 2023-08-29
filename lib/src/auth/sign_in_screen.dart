@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:quitanda/src/auth/Components/custom_text_field.dart';
 
@@ -11,12 +12,73 @@ class SignInScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(
-              color: Colors.green,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // --- App name ---
+                const Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Green',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'grocer',
+                        style: TextStyle(
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // --- Categories ---
+                DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 25,
+                  ),
+                  child: AnimatedTextKit(
+                    repeatForever: true,
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'Frutas',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                      TypewriterAnimatedText(
+                        'Verduras',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                      TypewriterAnimatedText(
+                        'Legumes',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                      TypewriterAnimatedText(
+                        'Carnes',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                      TypewriterAnimatedText(
+                        'Cereais',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                      TypewriterAnimatedText(
+                        'Laticíneos',
+                        speed: const Duration(milliseconds: 250),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
 
-          // --- White view ---
+          // --- Form Container ---
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
             decoration: const BoxDecoration(
