@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:quitanda/src/Config/custom_colors.dart';
 import 'package:quitanda/src/auth/Components/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: CustomColors.customSwatchColor,
       body: Column(
         children: [
           Expanded(
@@ -16,13 +17,13 @@ class SignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // --- App name ---
-                const Text.rich(
+                Text.rich(
                   TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 40,
                     ),
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: 'Green',
                         style: TextStyle(
                           color: Colors.white,
@@ -32,7 +33,7 @@ class SignInScreen extends StatelessWidget {
                       TextSpan(
                         text: 'grocer',
                         style: TextStyle(
-                          color: Colors.redAccent,
+                          color: CustomColors.customContrastColor,
                         ),
                       ),
                     ],
@@ -120,14 +121,14 @@ class SignInScreen extends StatelessWidget {
                 ),
 
                 //  --- Forgot password ---
-                const Align(
+                Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: null,
                     child: Text(
                       'Esqueceu a senha?',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: CustomColors.customContrastColor,
                       ),
                     ),
                   ),
