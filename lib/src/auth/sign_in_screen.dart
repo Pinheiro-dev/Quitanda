@@ -101,6 +101,7 @@ class SignInScreen extends StatelessWidget {
                     const CustomTextField(
                       icon: Icons.email,
                       label: 'Email',
+                      textInputType: TextInputType.emailAddress,
                     ),
 
                     //  --- Password ---
@@ -180,9 +181,7 @@ class SignInScreen extends StatelessWidget {
                         ),
                         onPressed: () {
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (c) => const SignUpScreen()
-                              ),
+                            MaterialPageRoute(builder: (c) => SignUpScreen()),
                           );
                         },
                         child: const Text(

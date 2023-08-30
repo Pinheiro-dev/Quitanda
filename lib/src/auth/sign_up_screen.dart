@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:quitanda/src/Config/custom_colors.dart';
 import 'package:quitanda/src/auth/Components/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+
+  final cpfFormatter = MaskTextInputFormatter(
+    mask: '###.###.###-##',
+    filter: {'#': RegExp(r'[0-9]')},
+  );
+
+  final phoneFormater = MaskTextInputFormatter(
+    mask: '(##) #####-####',
+    filter: {'#': RegExp(r'[0-9]')},
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +28,7 @@ class SignUpScreen extends StatelessWidget {
           width: size.width,
           child: Stack(
             children: [
+              // --- Register view ---
               Column(
                 children: [
                   const Expanded(
@@ -48,6 +60,7 @@ class SignUpScreen extends StatelessWidget {
                         const CustomTextField(
                           icon: Icons.email,
                           label: 'Email',
+                          textInputType: TextInputType.emailAddress,
                         ),
 
                         // --- Passowrd ---
@@ -61,18 +74,25 @@ class SignUpScreen extends StatelessWidget {
                         const CustomTextField(
                           icon: Icons.person,
                           label: 'Nome',
+                          textInputType: TextInputType.name,
                         ),
 
                         // --- Cellphone ---
-                        const CustomTextField(
+                        CustomTextField(
                           icon: Icons.phone,
                           label: 'Celular',
+                          inputFormatters: [phoneFormater],
+                          textInputType: const TextInputType.numberWithOptions(
+                              signed: true, decimal: true),
                         ),
 
                         // --- CPF ---
-                        const CustomTextField(
+                        CustomTextField(
                           icon: Icons.file_copy,
                           label: 'CPF',
+                          inputFormatters: [cpfFormatter],
+                          textInputType: const TextInputType.numberWithOptions(
+                              signed: true, decimal: true),
                         ),
 
                         // --- Register button ---
@@ -98,6 +118,8 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
+
+              // --- Back button ---
               Positioned(
                 left: 10,
                 child: SafeArea(
