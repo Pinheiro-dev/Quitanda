@@ -82,8 +82,7 @@ class SignUpScreen extends StatelessWidget {
                           icon: Icons.phone,
                           label: 'Celular',
                           inputFormatters: [phoneFormater],
-                          textInputType: const TextInputType.numberWithOptions(
-                              signed: true, decimal: true),
+                          textInputType: TextInputType.phone,
                         ),
 
                         // --- CPF ---
@@ -91,8 +90,7 @@ class SignUpScreen extends StatelessWidget {
                           icon: Icons.file_copy,
                           label: 'CPF',
                           inputFormatters: [cpfFormatter],
-                          textInputType: const TextInputType.numberWithOptions(
-                              signed: true, decimal: true),
+                          textInputType: TextInputType.number,
                         ),
 
                         // --- Register button ---

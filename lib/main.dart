@@ -12,15 +12,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: CustomColors.customSwatchColor),
-        useMaterial3: true,
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
+      },
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: CustomColors.customSwatchColor),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SignInScreen(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
     );
   }
 }
