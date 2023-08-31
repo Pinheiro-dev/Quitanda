@@ -61,23 +61,19 @@ class SignInScreen extends StatelessWidget {
                             speed: const Duration(milliseconds: 250),
                           ),
                           TypewriterAnimatedText(
+                            'Grãos',
+                            speed: const Duration(milliseconds: 250),
+                          ),
+                          TypewriterAnimatedText(
                             'Verduras',
                             speed: const Duration(milliseconds: 250),
                           ),
                           TypewriterAnimatedText(
-                            'Legumes',
-                            speed: const Duration(milliseconds: 250),
-                          ),
-                          TypewriterAnimatedText(
-                            'Carnes',
+                            'Temperos',
                             speed: const Duration(milliseconds: 250),
                           ),
                           TypewriterAnimatedText(
                             'Cereais',
-                            speed: const Duration(milliseconds: 250),
-                          ),
-                          TypewriterAnimatedText(
-                            'Laticíneos',
                             speed: const Duration(milliseconds: 250),
                           ),
                         ],
