@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quitanda/src/Config/custom_colors.dart';
-import 'package:quitanda/src/auth/sign_in_screen.dart';
+import 'package:quitanda/src/pages/auth/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of your application
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

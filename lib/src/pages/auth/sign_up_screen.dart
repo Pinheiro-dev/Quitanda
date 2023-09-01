@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:quitanda/src/Config/custom_colors.dart';
-import 'package:quitanda/src/auth/Components/custom_text_field.dart';
+import 'package:quitanda/src/pages/auth/Components/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
