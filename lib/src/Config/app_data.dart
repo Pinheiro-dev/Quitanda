@@ -65,10 +65,10 @@ List<ItemModel> items = [
 ];
 
 // --- Categorias ---
- List<String> categories = [
-    "Frutas",
-    "Grãos",
-    "Verduras",
-    "Temperos",
-    "Cereais",
-  ];
+List<String> categories = [
+  "Frutas",
+  "Grãos",
+  "Verduras",
+  "Temperos",
+  "Cereais",
+];
