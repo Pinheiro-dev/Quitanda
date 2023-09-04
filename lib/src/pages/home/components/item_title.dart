@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:quitanda/src/Config/custom_colors.dart';
 
 import 'package:quitanda/src/models/item_model.dart';
+import 'package:quitanda/src/services/utils_services.dart';
 
 class ItemTitle extends StatelessWidget {
   final ItemModel item;
 
-  const ItemTitle({
+  ItemTitle({
     Key? key,
     required this.item,
   }) : super(key: key);
+
+  final UtilServices utilServices = UtilServices();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class ItemTitle extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  item.price.toString(),
+                  utilServices.priceToCurrency(item.price),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
