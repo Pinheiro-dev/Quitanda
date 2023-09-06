@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quitanda/src/Config/custom_colors.dart';
 
 import 'package:quitanda/src/models/item_model.dart';
+import 'package:quitanda/src/pages/product/product_screen.dart';
 import 'package:quitanda/src/services/utils_services.dart';
 
 class ItemTitle extends StatelessWidget {
@@ -19,54 +20,63 @@ class ItemTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Card(
-          elevation: 1,
-          shadowColor: Colors.grey.shade300,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // --- Image --
-                Expanded(child: Image.asset(item.imgUrl)),
+        // --- Content ---
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (c) {
+              return ProductScreen(item: item);
+            }));
+          },
+          child: Card(
+            elevation: 1,
+            shadowColor: Colors.grey.shade300,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // --- Image --
+                  Expanded(child: Image.asset(item.imgUrl)),
 
-                // --- Product name ---
-                Text(
-                  item.itemName,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                  // --- Product name ---
+                  Text(
+                    item.itemName,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
 
-                // --- Price / Unit ---
-                Row(
-                  children: [
-                    Text(
-                      utilServices.priceToCurrency(item.price),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: CustomColors.customSwatchColor,
+                  // --- Price / Unit ---
+                  Row(
+                    children: [
+                      Text(
+                        utilServices.priceToCurrency(item.price),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: CustomColors.customSwatchColor,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "/${item.unit.toString()}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: Colors.grey.shade500,
+                      Text(
+                        "/${item.unit.toString()}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                          color: Colors.grey.shade500,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
+        // --- Button add to cart ---
         Positioned(
           top: 4,
           right: 4,
