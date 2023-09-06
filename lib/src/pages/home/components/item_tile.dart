@@ -6,10 +6,10 @@ import 'package:quitanda/src/models/item_model.dart';
 import 'package:quitanda/src/pages/product/product_screen.dart';
 import 'package:quitanda/src/services/utils_services.dart';
 
-class ItemTitle extends StatelessWidget {
+class ItemTile extends StatelessWidget {
   final ItemModel item;
 
-  ItemTitle({
+  ItemTile({
     Key? key,
     required this.item,
   }) : super(key: key);
@@ -29,6 +29,7 @@ class ItemTitle extends StatelessWidget {
           },
           child: Card(
             elevation: 1,
+            color: Colors.white,
             shadowColor: Colors.grey.shade300,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),

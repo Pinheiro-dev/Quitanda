@@ -134,7 +134,10 @@ class ProductScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: const Icon(Icons.arrow_back_ios),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: CustomColors.customSwatchColor,
+                ),
               ),
             ),
           ),
