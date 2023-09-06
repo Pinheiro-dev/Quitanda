@@ -22,16 +22,18 @@ class CategoryTile extends StatelessWidget {
       child: Align(
         alignment: Alignment.center,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 6),
+          padding: const EdgeInsets.symmetric(horizontal: 6),
           decoration: BoxDecoration(
-            color:
-                isSelected ? CustomColors.customSwatchColor : Colors.transparent,
+            color: isSelected
+                ? CustomColors.customSwatchColor
+                : Colors.transparent,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
             category,
             style: TextStyle(
-              color: isSelected ? Colors.white : CustomColors.customContrastColor,
+              color:
+                  isSelected ? Colors.white : CustomColors.customContrastColor,
               fontWeight: FontWeight.bold,
               fontSize: isSelected ? 16 : 14,
             ),
